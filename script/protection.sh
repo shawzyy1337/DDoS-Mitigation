@@ -155,7 +155,6 @@ install_all () {
     tcp_syn_timestamps
 }
 
-install_all
 
 echo "Finished! 
 You are now protected =)"
