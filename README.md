@@ -16,10 +16,19 @@ And more...
 # How to Use These Strategies
 
 To use these strategies, follow these steps:
-
-1.  Clone this repository onto your server.
-2.  Run the appropriate script or code snippet on your server.
-3.  Please note that these scripts may need to be run with root privileges.
+1. Clone this repository onto your server.:
+```bash
+  git clone https://github.com/shawzyy1337/DDoS-Mitigation.git
+```
+2. Use in terminal in order to modify file permissions: 
+```bash
+  chmod 750 ./install.sh
+```
+3. Run the appropriate script or code snippet on your server using:
+```bash
+  sh install.sh
+```
+4.  Please note that these scripts may need to be run with root privileges.
 
 With these scripts and code snippets, you can effectively protect your large-scale server from DDoS attacks 🛡️ 💪.  
 **Stay safe out there!** 
