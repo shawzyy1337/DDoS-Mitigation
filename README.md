@@ -11,6 +11,7 @@ This repository contains scripts and code snippets that can be used to reduce th
 - Disabling SYN packet tracking: Installs a kernel parameter that prevents the server from tracking SYN packets.
 - Dropping invalid packets: Adds an IPTables rule to drop packets that are marked as invalid.
 - Installing bogus TCP flags: Adds several IPTables rules to drop packets with various combinations of invalid TCP flags.
+ 
 And more...
 # Usage
 To use these strategies, clone this repository and run the appropriate script or code snippet on your server. Please note that these scripts may need to be run with root privileges.
