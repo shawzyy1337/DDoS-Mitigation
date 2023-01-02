@@ -20,6 +20,14 @@ tcp_syn_cookies () {
     echo "** Kernel: Setting parameter: tcp_syncookies -> true"
 }
 
+tcp_fast_open() {
+    echo "Installing TCP Fast open"
+    sysctl -w net.ipv4.tcp_fastopen=3
+    sysctl -w net.ipv4.tcp_fastopen_qlen=10
+    echo "** Kernel: Setting parameter: tcp_fastopen -> 3"
+    echo "** Kernel: Setting parameter: tcp_fastopen_qlen -> 10"
+}
+
 tcp_syn_backlog () {
     echo "Increasing TCP Syn Backlog"
     echo 2048 > /proc/sys/net/ipv4/tcp_max_syn_backlog
@@ -142,6 +150,7 @@ install_all () {
     tcp_syn_cookies
     tcp_syn_backlog
     tcp_syn_ack
+    tcp_fast_open
     ip_spoof
     disable_syn_packet_track
     drop_invalid_packets
@@ -162,16 +171,17 @@ echo "
     4.  Enable TCP Timestamps
     5.  Increase TCP SYN Backlog
     6.  Decrease TCP SYN-ACK Retries
-    7.  Enable IP Spoof protection
-    8.  Disable SYN Packet track
-    9.  Drop invalid packets
-    10. Insert bogus TCP Flags FIN,SYN,RST,ACK
-    11. Drop Fragments in all Chains
-    12. Limit connections per IP
-    13. Limit RST Packets
-    14. Use SYN-PROXY
-    15. Prevent SSH Bruteforce
-    16. Prevent Port Scanner
+    7.  Enable TCP Fast Open
+    8.  Enable IP Spoof protection
+    9.  Disable SYN Packet track
+    10.  Drop invalid packets
+    11. Insert bogus TCP Flags FIN,SYN,RST,ACK
+    12. Drop Fragments in all Chains
+    13. Limit connections per IP
+    14. Limit RST Packets
+    15. Use SYN-PROXY
+    16. Prevent SSH Bruteforce
+    17. Prevent Port Scanner
                                                  
     ALL.  Install all scripts
 "
@@ -185,16 +195,17 @@ case $option in
     4) tcp_syn_timestamps;;
     5) tcp_syn_backlog;;
     6) tcp_syn_ack;;
-    7) ip_spoof;;
-    8) disable_syn_packet_track;;
-    9) drop_invalid_packets;;
-    10) bogus_tcp_flags;;
-    11) drop_fragment_chains;;
-    12) limit_cons_per_ip;;
-    13) limit_rst_packets;;
-    14) syn_proxy;;
-    15) prevent_ssh_bf;;
-    16) prevent_port_scanner;;
+    7) tcp_fast_open;;
+    8) ip_spoof;;
+    9) disable_syn_packet_track;;
+    10) drop_invalid_packets;;
+    11) bogus_tcp_flags;;
+    12) drop_fragment_chains;;
+    13) limit_cons_per_ip;;
+    14) limit_rst_packets;;
+    15) syn_proxy;;
+    16) prevent_ssh_bf;;
+    17) prevent_port_scanner;;
     ALL) install_all;;
     *) echo Option not found;;
 esac
