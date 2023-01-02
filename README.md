@@ -35,6 +35,6 @@ With these scripts and code snippets, you can effectively protect your large-sca
  
 # Usage
 To use these strategies, clone this repository and run the appropriate script or code snippet on your server 💻.  
-Please note that these scripts may need to be run with root privileges 🚫.  
-Make sure to test the scripts before implementing them on a production server to ensure that they work as expected 🔍.  
+Please note that the script may need to be run with root privileges 🚫.  
+Make sure to test the script before implementing on a production server to ensure that it work as expected 🔍.  
 Protect your servers from DDoS attacks with these powerful tools 🛡️. 
