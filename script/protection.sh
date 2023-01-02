@@ -155,6 +155,50 @@ install_all () {
     tcp_syn_timestamps
 }
 
+echo "
+    1.  Ignore ICMP Packets
+    2.  Drop source routed Packets
+    3.  Enable TCP Syn Cookies
+    4.  Enable TCP Timestamps
+    5.  Increase TCP SYN Backlog
+    6.  Decrease TCP SYN-ACK Retries
+    7.  Enable IP Spoof protection
+    8.  Disable SYN Packet track
+    9.  Drop invalid packets
+    10. Insert bogus TCP Flags FIN,SYN,RST,ACK
+    11. Drop Fragments in all Chains
+    12. Limit connections per IP
+    13. Limit RST Packets
+    14. Use SYN-PROXY
+    15. Prevent SSH Bruteforce
+    16. Prevent Port Scanner
+                                                 
+    ALL.  Install all scripts
+"
+
+read -p " Select an option: " option
+
+case $option in
+    1) ignore_ICMP;;
+    2) drop_routed_packets;;
+    3) tcp_syn_cookies;;
+    4) tcp_syn_timestamps;;
+    5) tcp_syn_backlog;;
+    6) tcp_syn_ack;;
+    7) ip_spoof;;
+    8) disable_syn_packet_track;;
+    9) drop_invalid_packets;;
+    10) bogus_tcp_flags;;
+    11) drop_fragment_chains;;
+    12) limit_cons_per_ip;;
+    13) limit_rst_packets;;
+    14) syn_proxy;;
+    15) prevent_ssh_bf;;
+    16) prevent_port_scanner;;
+    ALL) install_all;;
+    *) echo Option not found;;
+esac
+
 
 echo "Finished! 
 You are now protected =)"
